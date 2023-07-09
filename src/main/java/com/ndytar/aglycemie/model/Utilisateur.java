@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Builder
 @Getter
@@ -46,18 +47,24 @@ public class Utilisateur extends AbstractEntity{
     @Column(name = "etat")
     private Boolean etat;
     
-    @Column(name = "code")
+    @Column(name = "code",updatable = false)
     private String code;
+    
+    @Column(name = "suivi")
+    private Boolean suivi;
+    
+  
 
 
-
-//    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-//    @JoinTable(name = "DetailRole",
-//            joinColumns = @JoinColumn(name = "idUser"),
-//            inverseJoinColumns = @JoinColumn(name = "idRole"))
-//    private  List<Roles> roles;
+    @OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(name = "Suivi",
+            joinColumns = @JoinColumn(name = "diabetique"),
+            inverseJoinColumns = @JoinColumn(name = "medecin"))
+    private List<Utilisateur> utilisateurs;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Roles> roles = new ArrayList<>();
+
+
 
 }

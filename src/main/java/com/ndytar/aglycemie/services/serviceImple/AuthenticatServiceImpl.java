@@ -75,7 +75,7 @@ public AuthenticationResponse login(AuthenticationRequest request) {
     JwtClaimsSet jwtClaimsSet = JwtClaimsSet.builder()
                                         .subject(username)
                                         .issuedAt(instant)
-                                        .expiresAt(instant.plus(request.isRefreshToken()?2:3, ChronoUnit.MINUTES))
+                                        .expiresAt(instant.plus(request.isRefreshToken()?3600:3600, ChronoUnit.MINUTES))
                                         .issuer("*")
                                         .claim("scope",roles)
                                         .build();
@@ -93,7 +93,7 @@ public AuthenticationResponse login(AuthenticationRequest request) {
         JwtClaimsSet jwtClaimsSetRefreshToken = JwtClaimsSet.builder()
                                                         .subject(username)
                                                         .issuedAt(instant)
-                                                        .expiresAt(instant.plus(7000, ChronoUnit.HOURS))
+                                                        .expiresAt(instant.plus(3600, ChronoUnit.HOURS))
                                                         .issuer("*")
                                                         .build();
         String jwtAccessRefreshToken = jwtEncoder.encode(JwtEncoderParameters.from(jwtClaimsSetRefreshToken)).getTokenValue();

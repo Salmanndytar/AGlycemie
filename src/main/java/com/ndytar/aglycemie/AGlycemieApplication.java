@@ -16,6 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.context.support.GroovyWebApplicationContext;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Random;
 
 
 @EnableJpaAuditing
@@ -30,8 +32,24 @@ public static void main(String[] args)
     SpringApplication.run(AGlycemieApplication.class, args);
 //    Instant  instant = Instant.now();
 //    Instant expir =  Instant.parse("2023-07-05T02:45:41Z");
-//
-//    System.out.println(expir.compareTo(instant));
+//   Integer va = null;
+////
+//    Random random = new Random();
+//    ArrayList<Integer> code = new ArrayList<Integer>();
+//    code.add(946978);
+//    code.add(946970);
+//    code.add(941078);
+//   do {
+//       va =random.nextInt(987654 - 543210)+543210;
+//   }while (code.contains(va));
+//   System.out.println("new code: "+va);
+//    for (Integer i :code
+//         ) {
+//        System.out.println("code user: "+i);
+//    }
+
+
+    
 }
 
 }

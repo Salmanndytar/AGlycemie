@@ -15,6 +15,7 @@ List<UtulisateurDto> searchUserByname(String kyword);
 Boolean checkMail(String mail);
 UtulisateurDto ChangetMotdePasseUtilisateurService(ChangerMotdePassUtilisateurDto dto);
 UtulisateurDto findUtilisateurById(Integer id);
-  
+UtulisateurDto findUtilisateurByCode(String code);
+
 
 }
